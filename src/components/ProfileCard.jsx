@@ -41,23 +41,30 @@ export default function ProfileCard({ profile }) {
     .join("");
 
   return (
-    <Card className="flex h-[calc(100svh-3rem)] flex-col justify-between gap-4 overflow-hidden p-5 text-left xl:p-6">
-      <div className="mx-auto w-full max-w-[200px] xl:max-w-[220px]">
+    <Card className="flex h-[calc(100svh-3rem)] flex-col justify-between gap-4 p-5 text-left xl:p-6">
+      <div className="mx-auto w-full max-w-[160px] sm:max-w-[180px] md:max-w-[200px] xl:max-w-[220px]">
         {profile.portrait ? (
           <img
             src={profile.portrait}
             alt={profile.name}
-            className="aspect-[4/5] w-full rounded-[20px] object-cover"
+            className="aspect-[4/5] w-full h-auto rounded-[20px] object-cover"
+            style={{
+              maxHeight: "min(40vw, 300px)"
+            }}
           />
         ) : (
           <div
-            className="flex aspect-[4/5] w-full items-center justify-center rounded-[20px] bg-gradient-to-br from-zinc-100 to-zinc-200 text-4xl font-semibold tracking-tight text-zinc-400 dark:from-zinc-800 dark:to-zinc-900 dark:text-zinc-500"
+            className="flex aspect-[4/5] w-full items-center justify-center rounded-[20px] bg-gradient-to-br from-zinc-100 to-zinc-200 text-3xl sm:text-4xl font-semibold tracking-tight text-zinc-400 dark:from-zinc-800 dark:to-zinc-900 dark:text-zinc-500"
             aria-hidden
+            style={{
+              maxHeight: "min(40vw, 300px)"
+            }}
           >
             {initials}
           </div>
         )}
       </div>
+
 
       <div className="space-y-1">
         <h1 className="text-xl font-semibold tracking-tight text-foreground xl:text-2xl">

@@ -4,9 +4,9 @@ export const profile = {
   location: "Metz, France",
   intro:
     "Software developer focused on Java, Spring Boot, Laravel and modern web applications.",
-  portrait: null,
+  portrait: "src/assets/images/pfp.png",
   quickInfo: [
-    { label: "Experience", value: "3+ years" },
+    { label: "Experience", value: "2+ years" },
     { label: "Main stack", value: "Java · Spring · Laravel" },
     { label: "Availability", value: "Open to opportunities" },
   ],
@@ -22,7 +22,7 @@ export const profile = {
   ],
   links: {
     cv: "#",
-    email: "mailto:allan.tijou@example.com",
+    email: "mailto:tijouallan2001@gmail.com",
     linkedin: "https://linkedin.com/in/allantijou",
     github: "https://github.com/allantijou",
   },
