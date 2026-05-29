@@ -1,107 +1,94 @@
-function SidebarLeft() {
-  return (
-    <div className="w-64 bg-zinc-900 border-r border-zinc-800 p-4">
-      
-      <h1 className="text-2xl font-bold mb-6">
-        Allan Tijou
-      </h1>
+import { useCallback, useEffect, useMemo, useState } from "react";
+import Sidebar from "./components/Sidebar";
+import ProfileCard from "./components/ProfileCard";
+import AboutSection from "./components/AboutSection";
+import ProjectsSection from "./components/ProjectsSection";
+import ExperienceTimeline from "./components/ExperienceTimeline";
+import SkillsSection from "./components/SkillsSection";
+import ContactCard from "./components/ContactCard";
+import {
+  profile,
+  projects,
+  experience,
+  skills,
+  about,
+  contact,
+  navItems,
+} from "./data/portfolio";
 
-      {/* Navigation */}
-      <nav className="flex flex-col gap-2">
-
-        <button className="text-left p-2 rounded hover:bg-zinc-800">
-          Mon profil
-        </button>
-
-        <button className="text-left p-2 rounded hover:bg-zinc-800">
-          Mes projets
-        </button>
-
-      </nav>
-
-      {/* Photo */}
-      <div className="mt-10">
-        <img
-          src="https://placehold.co/200x200"
-          alt="profil"
-          className="rounded-xl"
-        />
-      </div>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2 mt-6">
-
-        <span className="bg-zinc-800 px-3 py-1 rounded-full text-sm">
-          Java
-        </span>
-
-        <span className="bg-zinc-800 px-3 py-1 rounded-full text-sm">
-          React
-        </span>
-
-        <span className="bg-zinc-800 px-3 py-1 rounded-full text-sm">
-          Laravel
-        </span>
-
-      </div>
-
-      {/* Description */}
-      <p className="text-zinc-400 mt-6 text-sm">
-        Développeur backend et frontend passionné par les applications métier,
-        l’automatisation et les interfaces modernes.
-      </p>
-
-    </div>
-  )
-}
-
-function MainContent() {
-  return (
-    <div className="flex-1 p-8">
-
-      <h2 className="text-4xl font-bold mb-6">
-        Mon Profil
-      </h2>
-
-      <div className="bg-zinc-900 rounded-2xl p-6 border border-zinc-800">
-        Contenu principal ici
-      </div>
-
-    </div>
-  )
-}
-
-function Sandbox() {
-  return (
-    <div className="w-80 bg-zinc-900 border-l border-zinc-800 p-4">
-
-      <h2 className="text-xl font-bold mb-4">
-        Sandbox
-      </h2>
-
-      {/* Bloc exemple */}
-      <div className="bg-zinc-800 rounded-xl p-4 h-40 mb-4">
-        Petit bloc
-      </div>
-
-      <div className="bg-zinc-800 rounded-xl p-4 h-64">
-        Grand bloc
-      </div>
-
-    </div>
-  )
+function getInitialTheme() {
+  if (typeof window === "undefined") return "light";
+  const stored = localStorage.getItem("portfolio-theme");
+  if (stored === "light" || stored === "dark") return stored;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
 }
 
 export default function App() {
+  const [activeSection, setActiveSection] = useState("home");
+  const [theme, setTheme] = useState(getInitialTheme);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
+
+  const navigateToSection = useCallback((id) => {
+    setActiveSection(id);
+  }, []);
+
+  const toggleTheme = useCallback(() => {
+    setTheme((t) => (t === "light" ? "dark" : "light"));
+  }, []);
+
+  const activeContent = useMemo(() => {
+    switch (activeSection) {
+      case "projects":
+        return <ProjectsSection projects={projects} />;
+      case "experience":
+        return <ExperienceTimeline experience={experience} />;
+      case "skills":
+        return <SkillsSection skills={skills} />;
+      case "contact":
+        return <ContactCard contact={contact} />;
+      case "home":
+      default:
+        return <AboutSection about={about} />;
+    }
+  }, [activeSection]);
+
   return (
-    <div className="min-h-screen bg-black text-white flex">
+    <div className="h-svh overflow-hidden bg-surface text-foreground">
+      <div className="mx-auto grid h-svh max-w-[1400px] grid-cols-1 lg:grid-cols-[80px_minmax(280px,340px)_1fr] xl:grid-cols-[100px_minmax(300px,360px)_1fr]">
+        <div className="fixed bottom-0 left-0 right-0 z-20 border-t border-border bg-card/95 backdrop-blur-md lg:static lg:border-t-0 lg:bg-transparent lg:backdrop-blur-none">
+          <div className="mx-auto max-w-[1400px] lg:h-full">
+            <Sidebar
+              activeSection={activeSection}
+              onNavigate={navigateToSection}
+              theme={theme}
+              onToggleTheme={toggleTheme}
+              onContactShortcut={() => navigateToSection("contact")}
+            />
+          </div>
+        </div>
 
-      <SidebarLeft />
+        <div className="hidden h-svh border-r border-border px-4 py-6 lg:block">
+          <ProfileCard profile={profile} />
+        </div>
 
-      <MainContent />
+        <main className="col-span-1 h-svh overflow-hidden px-4 py-6 pb-28 lg:col-start-3 lg:px-8 lg:py-8 lg:pb-8">
+          <div className="mb-8 lg:hidden">
+            <ProfileCard profile={profile} />
+          </div>
 
-      <Sandbox />
-
+          <div className="mx-auto flex h-full w-full max-w-3xl items-start">
+            <div className="w-full">
+              {activeContent}
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
-  )
+  );
 }
