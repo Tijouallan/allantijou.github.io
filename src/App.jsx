@@ -59,7 +59,7 @@ export default function App() {
   }, [activeSection]);
 
   return (
-    <div className="h-svh overflow-hidden bg-surface text-foreground">
+    <div className="h-svh  bg-surface text-foreground">
       <div className="mx-auto grid h-svh max-w-[1400px] grid-cols-1 lg:grid-cols-[80px_minmax(280px,340px)_1fr] xl:grid-cols-[100px_minmax(300px,360px)_1fr]">
         <div className="fixed bottom-0 left-0 right-0 z-20 border-t border-border bg-card/95 backdrop-blur-md lg:static lg:border-t-0 lg:bg-transparent lg:backdrop-blur-none">
           <div className="mx-auto max-w-[1400px] lg:h-full">
@@ -77,7 +77,7 @@ export default function App() {
           <ProfileCard profile={profile} />
         </div>
 
-        <main className="col-span-1 h-svh overflow-hidden px-4 py-6 pb-28 lg:col-start-3 lg:px-8 lg:py-8 lg:pb-8">
+        <main className="col-span-1 h-svh  px-4 py-6 pb-28 lg:col-start-3 lg:px-8 lg:py-8 lg:pb-8">
           <div className="mb-8 lg:hidden">
             <ProfileCard profile={profile} />
           </div>

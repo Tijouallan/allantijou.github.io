@@ -4,8 +4,8 @@ import Card from "./Card";
 
 export default function ProjectCard({ project }) {
   return (
-    <Card className="group overflow-hidden p-0">
-      <div className="aspect-[16/8] w-full overflow-hidden bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900">
+    <Card className="group  p-0">
+      <div className="aspect-[16/8] w-full  bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900">
         {project.image ? (
           <img
             src={project.image}
