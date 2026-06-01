@@ -3,7 +3,7 @@ import Sidebar from "./components/Sidebar";
 import ProfileCard from "./components/ProfileCard";
 import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
-import ExperienceTimeline from "./components/ExperienceTimeline";
+import ExperienceSection from "./components/ExperienceSection";
 import SkillsSection from "./components/SkillsSection";
 import ContactCard from "./components/ContactCard";
 import {
@@ -47,7 +47,7 @@ export default function App() {
       case "projects":
         return <ProjectsSection projects={projects} />;
       case "experience":
-        return <ExperienceTimeline experience={experience} />;
+        return <ExperienceSection experience={experience} />;
       case "skills":
         return <SkillsSection skills={skills} />;
       case "contact":
@@ -73,7 +73,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="hidden h-svh border-r border-border px-4 py-6 lg:block">
+        <div className="hidden h-svh min-h-0 border-r border-border px-4 py-6 lg:block">
           <ProfileCard profile={profile} />
         </div>
 

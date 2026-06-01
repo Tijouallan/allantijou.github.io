@@ -23,8 +23,8 @@ export const profile = {
   links: {
     cv: "#",
     email: "mailto:tijouallan2001@gmail.com",
-    linkedin: "https://linkedin.com/in/allantijou",
-    github: "https://github.com/allantijou",
+    linkedin: "www.linkedin.com/in/allan-tijou",
+    github: "https://github.com/Tijouallan",
   },
 };
 
@@ -63,28 +63,138 @@ export const projects = [
 
 export const experience = [
   {
-    id: "exp-1",
-    company: "Company Name",
-    position: "Software Developer",
-    duration: "2023 — Present",
-    description:
-      "Develop and maintain backend services using Java and Spring Boot. Collaborate on API design, code reviews, and deployment pipelines.",
+    id: "qualios",
+    role: "Ingénieur QA Test / Automatisation",
+    company: "Qualios",
+    period: "Février 2026 — Avril 2026",
+    location: "Nancy",
+    context:
+      "Remplacement des campagnes de tests manuels par des tests automatisés afin d'améliorer la couverture fonctionnelle, sécuriser les déploiements clients et fiabiliser les livraisons.",
+    problem:
+      "Les tests manuels limitaient la couverture, ralentissaient les cycles de livraison et exposaient les déploiements clients à des risques de régression.",
+    solution:
+      "Mise en place d'une stratégie d'automatisation et de qualification continue : choix d'outils, tests de charge, revues de code et réflexion sur une nouvelle pipeline CI/CD.",
+    highlights: [
+      "Étude comparative et intégration d'outils d'automatisation (Selenium, Playwright, Maven Surefire).",
+      "Configuration d'outils de tests de charge et de performance (JMeter, SoapUI).",
+      "Analyse fonctionnelle pour l'estimation des campagnes de tests.",
+      "Développement de tests unitaires, d'intégration et UX.",
+      "Rédaction de rapports de conformité et qualification des versions logicielles.",
+      "Recherche et étude autour d'une nouvelle pipeline CI/CD.",
+    ],
+    technologies: [
+      "Jakarta EE",
+      "JUnit",
+      "Selenium",
+      "Playwright",
+      "Maven",
+      "Tomcat 11",
+    ],
   },
   {
-    id: "exp-2",
-    company: "Previous Company",
-    position: "Junior Developer",
-    duration: "2021 — 2023",
-    description:
-      "Built and maintained Laravel applications. Implemented features, fixed bugs, and contributed to database schema improvements.",
+    id: "all-in-box",
+    role: "Développeur PHP/Laravel",
+    company: "All In Box",
+    period: "Juin 2025 — Octobre 2025",
+    location: "Woippy",
+    context:
+      "Développement modulaire sur une application monolithique Laravel destinée aux commerçants.",
+    problem:
+      "La plateforme devait évoluer avec de nouveaux services métier (affichage et prise de rendez-vous) sans fragiliser le monolithe existant.",
+    solution:
+      "Conception et livraison de modules Laravel autonomes, intégrés au cœur de l'application commerçants.",
+    highlights: [
+      "Module de gestion et de suivi de bornes d'affichage.",
+      "Agenda en ligne : prise de rendez-vous, gestion des prestations et réservation en ligne (fonctionnement proche de Planity).",
+    ],
+    technologies: ["Laravel", "PHP", "Jira"],
   },
   {
-    id: "exp-3",
-    company: "Internship / Training",
-    position: "Developer Intern",
-    duration: "2020 — 2021",
-    description:
-      "Assisted with web development projects, learned agile workflows, and gained hands-on experience with PHP and JavaScript.",
+    id: "commissure",
+    role: "Co-développeur",
+    company: "Projet Commissure (SaaS Assurance)",
+    period: "Avril 2025 — Septembre 2025",
+    location: null,
+    context:
+      "Développement d'une solution SaaS de calcul et d'estimation des commissions pour courtiers en assurance.",
+    problem:
+      "Les courtiers géraient des commissions complexes (imports, contrats, précomptes) avec des processus manuels peu fiables et peu visibles.",
+    solution:
+      "Co-construction d'un SaaS centralisant le calcul, le suivi et la valorisation des commissions avec détection d'anomalies.",
+    highlights: [
+      "Automatisation du calcul des commissions et import de fichiers.",
+      "Création automatique de contrats et clients, gestion du cycle de vie.",
+      "Gestion des commissions, précomptes et encours.",
+      "Calcul prévisionnel des commissions futures et valorisation du portefeuille.",
+      "Détection d'anomalies et export des données.",
+    ],
+    technologies: [
+      "Java 23",
+      "Spring Boot 3",
+      "Hibernate/JPA",
+      "MySQL",
+      "Liquibase",
+      "Lombok",
+      "JUnit 5",
+      "Angular",
+    ],
+  },
+  {
+    id: "reseda",
+    role: "Développeur PHP/Laravel",
+    company: "Réséda",
+    period: "Septembre 2024 — Avril 2025",
+    location: "Metz",
+    context:
+      "Conception d'un outil complet de supervision des alarmes de compteurs électriques communicants pour remplacer une solution devenue obsolète.",
+    problem:
+      "L'outil legacy ne permettait plus de superviser efficacement les alarmes sur un parc de compteurs en croissance.",
+    solution:
+      "Application Laravel de bout en bout : analyse des besoins, conception fonctionnelle, migration des données et cadrage d'une API d'acquisition sécurisée.",
+    highlights: [
+      "Recueil et analyse des besoins utilisateurs, conception fonctionnelle.",
+      "Développement Laravel et conception du schéma SQL.",
+      "Migration d'un système JSON vers SQL et scripts d'alimentation des données.",
+      "Rédaction du cahier des charges d'une API sécurisée d'acquisition de données.",
+    ],
+    technologies: ["SQL", "PHP", "Laravel", "PowerShell"],
+  },
+  {
+    id: "arcelor",
+    role: "Data Analyst",
+    company: "ArcelorMittal",
+    period: "Février 2024 — Juillet 2024",
+    location: "Esch-sur-Alzette (Luxembourg)",
+    context:
+      "Adaptation de l'ERP PSI Metal pour l'intégration d'un nouveau four électrique sur le site sidérurgique de Belval.",
+    problem:
+      "Le site devait intégrer un nouveau fournisseur électrique dans l'ERP existant tout en maintenant le pilotage via des KPI fiables.",
+    solution:
+      "Cadrage fonctionnel avec les métiers et industrialisation des indicateurs via SQL et Power BI.",
+    highlights: [
+      "Rédaction du cahier des charges fonctionnel avec les ingénieurs métiers.",
+      "Développement de requêtes SQL exploitées dans Power BI pour les KPI annuels.",
+    ],
+    technologies: ["Java", "PL/SQL", "ERP PSI Metal", "Power BI"],
+  },
+  {
+    id: "garbocom",
+    role: "Développeur Web / Solutions E-commerce",
+    company: "Garbocom",
+    period: "Juin 2024 — Août 2024",
+    location: "Metz",
+    context:
+      "Développement d'un catalogue de démonstration de sites e-commerce destiné à présenter plusieurs modèles aux clients.",
+    problem:
+      "Les commerciaux avaient besoin de démos variées et reproductibles pour convaincre des prospects hôteliers et e-commerce.",
+    solution:
+      "Templates WordPress, documentation de déploiement et migrations ciblées pour accélérer les mises en production.",
+    highlights: [
+      "Création de templates WordPress et documentation de création de sites de démonstration.",
+      "Migration de sites hôteliers WordPress de WooCommerce vers MotoPress (MPHB).",
+      "Préparation des mises en production.",
+    ],
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "WordPress"],
   },
 ];
 
@@ -105,16 +215,16 @@ export const about = {
 };
 
 export const contact = {
-  email: "allan.tijou@example.com",
-  linkedin: "https://linkedin.com/in/allantijou",
-  github: "https://github.com/allantijou",
-  portfolio: "https://allantijou.github.io",
+  email: "tijouallan2001@gmail.com",
+  linkedin: "www.linkedin.com/in/allan-tijou",
+  github: "www.github.com/Tijouallan",
+  portfolio: "https://tijouallan.github.io/allantijou.github.io/",
 };
 
 export const navItems = [
   { id: "home", label: "Home" },
   { id: "projects", label: "Projects" },
-  { id: "experience", label: "Experience" },
+  { id: "experience", label: "Expérience" },
   { id: "skills", label: "Skills" },
   { id: "contact", label: "Contact" },
 ];
